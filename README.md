@@ -1,2 +1,2 @@
 # MTK3
-My MTK§ Project
+My MTK3 Project
