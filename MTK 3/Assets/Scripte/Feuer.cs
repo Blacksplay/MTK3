@@ -11,7 +11,7 @@ public class Feuer : MonoBehaviour
     {
 
 
-        if (Input.GetKeyUp("1"))
+        if (Input.GetKeyDown("5"))
         {
             if (!fire.activeSelf)
             {
@@ -19,19 +19,14 @@ public class Feuer : MonoBehaviour
                 print("feuer an");
             }
 
-        }       
-        
-        if (Input.GetKeyUp("2"))
-        {
-            if (fire.activeSelf)
+
+            else if (fire.activeSelf)
             {
                 fire.SetActive(false);
                 print("feuer aus");
             }
-
-        }
-
-
+        }       
+      
 
     }
 }
