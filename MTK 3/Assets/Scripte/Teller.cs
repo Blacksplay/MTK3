@@ -28,33 +28,48 @@ public class Teller : MonoBehaviour
             }
         }
 
-
-        IEnumerator SpawnTeller()
-        {
-
-            print("Teller an");
-            for (int i = 0; i < teller.Length; i++)
-            {
-                teller[i].SetActive(true);
-                    yield return new WaitForSeconds(delay);
-                    print("Teller an");
-
-            }
-            //print("Teller an");
-            spawn=true;
-
-        }
-
-        IEnumerator DespawnTeller()
-        {
-            for (int i = 0; i < teller.Length; i++)
-            {
-                teller[i].SetActive(false);
-                yield return new WaitForSeconds(delay); 
-            }
-            print("Teller aus");
-            spawn=false;
     }
 
+    public void TellerButton()
+    {
+        if (!spawn)
+        {
+            StartCoroutine(SpawnTeller());
+        }
+
+        else if (spawn)
+        {
+            StartCoroutine(DespawnTeller());
+        }
+    }
+
+
+    IEnumerator SpawnTeller()
+    {
+
+        print("Teller an");
+        GetComponent<AudioSource>().Play();
+        for (int i = 0; i < teller.Length; i++)
+        {
+            teller[i].SetActive(true);
+            yield return new WaitForSeconds(delay);
+            print("Teller an");
+
+        }
+        spawn = true;
+
+
+    }
+
+    IEnumerator DespawnTeller()
+    {
+        GetComponent<AudioSource>().Play();
+        for (int i = 0; i < teller.Length; i++)
+        {
+            teller[i].SetActive(false);
+            yield return new WaitForSeconds(delay);
+        }
+        print("Teller aus");
+        spawn = false;
     }
 }

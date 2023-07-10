@@ -18,12 +18,21 @@ public class Blitz : MonoBehaviour
 
     IEnumerator Bltz()
     {
+
+        print("blitz");
         yield return new WaitForSeconds(2);
 
         blitz.SetActive(true);
 
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.1f);
 
         blitz.SetActive(false);
+        GetComponent<AudioSource>().Play();
+    }
+
+
+    public void blitzbutton()
+    {
+        StartCoroutine(Bltz());
     }
 }
